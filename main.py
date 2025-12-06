@@ -10,6 +10,11 @@ pygame.display.set_caption("Python Tetris")
 clock = pygame.time.Clock()
 
 game_grid = Grid()
+
+game_grid.grid[0][0] = 1
+game_grid.grid[5][7] = 4
+game_grid.grid[19][9] = 6
+
 game_grid.print_grid()
 
 while True:
@@ -17,6 +22,9 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+    #Drawing
     screen.fill(dark_blue)
+    game_grid.draw(screen)
+
     pygame.display.update()
     clock.tick(60)
